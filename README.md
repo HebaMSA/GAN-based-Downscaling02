@@ -8,6 +8,14 @@ The dataset is split chronologically, with 80% used for training and 20% for tes
 
 After training, the WGAN model is saved automatically. A pretrained model is also included in this repository for reference and reproducibility.
 
+## UNET pretraining
+
+This repository also includes code for pretraining a **UNET** model, which can be used as a deterministic baseline or as a precursor to the WGAN training.
+
+The UNET is trained to map coarse-resolution precipitation fields (`x_train`) directly to fine-resolution targets (`y_train`) using supervised learning. The same preprocessing, spatial domain, and chronological train–test split (80% / 20%) are applied to ensure consistency with the WGAN experiments.
+
+An example of a pretrained UNET model is provided in the repository for reference. Users may retrain the UNET using the supplied scripts by adjusting the data paths and training parameters as needed.
+
 ## Computational cost (example)
 
 For reference, training the WGAN on a dataset consisting of approximately **15 years of hourly precipitation at 4 km resolution** (∼**1 TB** of data) required about **28 hours** of wall-clock time using **3 NVIDIA A100-SXM4 GPUs (40 GB each)**.
